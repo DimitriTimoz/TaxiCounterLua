@@ -95,7 +95,7 @@ function Calcul()
                 price = (min + perKilometer * distance + (time / 600 * perGTAHourDay))
         end
 
-        local message = "~b~ Le prix de la course est de: ~g~" .. tostring(round(price)) .. " $."
+        local message = "~b~ The price is: ~g~" .. tostring(round(price)) .. " $."
 
         ShowSubtitle(message, 51)
       
