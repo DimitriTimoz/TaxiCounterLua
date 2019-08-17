@@ -61,9 +61,15 @@ AddEventHandler('taxi-counter:Stop', function()
         started = false
 end)
 
-RegisterNetEvent('taxi-counter:Stop')
+RegisterNetEvent('taxi-counter:Pay')
 AddEventHandler('taxi-counter:Pay', function()
-        --Votre script de facturation
+        --Votre script de facturation / Payement method: price var: price
+end)
+
+RegisterNetEvent('taxi-counter:Resume')
+AddEventHandler('taxi-counter:Resume', function()
+       started = true
+       Calcul()
 end)
 
 function Calcul()
