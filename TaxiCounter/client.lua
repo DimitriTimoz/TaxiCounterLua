@@ -22,15 +22,28 @@ local started = false
 --Repère temps 1/2 sec
 local time = 0
 
+RegisterCommand("night", function()
+	night = true
+end)
 
 RegisterNetEvent('taxi-counter:ChooseNight')
 AddEventHandler('taxi-counter:ChooseNight', function ()
     night = true
 end)
 
+RegisterCommand("day", function()
+	night = false
+end)
+
 RegisterNetEvent('taxi-counter:ChooseDay')
 AddEventHandler('taxi-counter:ChooseDay', function ()
     night = false
+end)
+
+RegisterCommand("start", function()
+	Clear()
+    started = true
+    Calcul()
 end)
 
 RegisterNetEvent('taxi-counter:Start')
@@ -40,13 +53,13 @@ AddEventHandler('taxi-counter:Start', function()
     Calcul()
 end)
 
-
+RegisterCommand("clear", function()
+	Clear()
+end)
 
 RegisterNetEvent('taxi-counter:Clear')
 AddEventHandler('taxi-counter:Clear', function()
-    total = 0
-    time = 0
-    price = 0
+    Clear()
 end)
 
 function Clear()
@@ -56,14 +69,28 @@ function Clear()
     started = false
 end
 
+RegisterCommand("stop", function()
+	started = false
+end)
+
+
 RegisterNetEvent('taxi-counter:Stop')
 AddEventHandler('taxi-counter:Stop', function()
         started = false
 end)
 
+RegisterCommand("pay", function()
+	--Votre script de facturation / Payement method: price var: price
+end)
+
 RegisterNetEvent('taxi-counter:Pay')
 AddEventHandler('taxi-counter:Pay', function()
         --Votre script de facturation / Payement method: price var: price
+end)
+
+RegisterCommand("resume", function()
+	started = true
+    Calcul()
 end)
 
 RegisterNetEvent('taxi-counter:Resume')
